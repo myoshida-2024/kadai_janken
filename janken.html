@@ -60,12 +60,13 @@
         commentDiv.style.fontSize = '80px'; // テキストのフォントサイズ
         commentDiv.style.fontWeight = 'bold'; // テキストの太さ
 
+    
         // あなたが選んだ手の絵(ぐー)
         var yourimggu = document.createElement('img');
         yourimggu.id = '';
         yourimggu.src = './img/janken_gu_small.png';
         yourimggu.style.marginTop = '-80px';
-        yourimggu.style.marginLeft = '150px';
+        yourimggu.style.marginLeft = '450px';
 
 
         // あなたが選んだ手の絵(ちょき)
@@ -73,14 +74,14 @@
         yourimgchoki.id = '';
         yourimgchoki.src = './img/janken_choki_small.png';
         yourimgchoki.style.marginTop = '-80px';
-        yourimgchoki.style.marginLeft = '150px';
+        yourimgchoki.style.marginLeft = '450px';
 
         // あなたが選んだ手の絵(ぱー)
         var yourimgpa = document.createElement('img');
         yourimgpa.id = '';
         yourimgpa.src = './img/janken_pa_small.png';
         yourimgpa.style.marginTop = '-80px';
-        yourimgpa.style.marginLeft = '150px';
+        yourimgpa.style.marginLeft = '450px';
 
 
         // 私=コンピュータが選んだ手の絵(ぐー)
@@ -119,10 +120,10 @@
             const num = Math.ceil(Math.random() * 3);
             if (num == 1) {
 
-                alert("ぐー あいこ");
+                // alert("ぐー あいこ");
                 var addcomment = document.createTextNode('\u00A0\u00A0\u00A0   あいこ');
                 commentDiv.appendChild(addcomment); // テキストノードをdivに追加
-                commentDiv.style.textAlign = 'center'; // テキストを中央に揃える
+                commentDiv.style.marginLeft = '300px';
                 commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
                 document.body.appendChild(commentDiv); // divをbodyに追加
                 document.body.appendChild(myimggu);
@@ -130,22 +131,22 @@
 
             }
             else if (num == 2) {
-                alert("ちょき あなたの勝ち！")
+                // alert("ちょき あなたの勝ち！")
                 var addcomment = document.createTextNode("あなたの勝ち");
                 commentDiv.appendChild(addcomment); // テキストノードをdivに追加
-                commentDiv.style.textAlign = 'center'; // テキストを中央に揃える
+                commentDiv.style.marginLeft = '300px';
                 commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
                 document.body.appendChild(commentDiv); // divをbodyに追加
                 document.body.appendChild(myimgchoki);
 
-                
+
 
             }
             else if (num == 3) {
-                alert("ぱー わたしの勝ち！")
+                // alert("ぱー わたしの勝ち！")
                 var addcomment = document.createTextNode("わたしの勝ち");
                 commentDiv.appendChild(addcomment); // テキストノードをdivに追加
-                commentDiv.style.textAlign = 'center'; // テキストを中央に揃える
+                commentDiv.style.marginLeft = '300px';
                 commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
                 document.body.appendChild(commentDiv); // divをbodyに追加
                 document.body.appendChild(myimgpa);
@@ -162,10 +163,10 @@
             const num = Math.ceil(Math.random() * 3);
             if (num == 1) {
 
-                alert("ぐー わたしの勝ち")
+                // alert("ぐー わたしの勝ち")
                 var addcomment = document.createTextNode("わたしの勝ち");
                 commentDiv.appendChild(addcomment); // テキストノードをdivに追加
-                commentDiv.style.textAlign = 'center'; // テキストを中央に揃える
+                commentDiv.style.marginLeft = '300px';
                 commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
                 document.body.appendChild(commentDiv); // divをbodyに追加
                 document.body.appendChild(myimggu);
@@ -173,19 +174,19 @@
 
             }
             else if (num == 2) {
-                alert("ちょき あいこ")
+                // alert("ちょき あいこ")
                 var addcomment = document.createTextNode("\u00A0\u00A0\u00A0   あいこ");
                 commentDiv.appendChild(addcomment); // テキストノードをdivに追加
-                commentDiv.style.textAlign = 'center'; // テキストを中央に揃える
+                commentDiv.style.marginLeft = '300px';
                 commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
                 document.body.appendChild(commentDiv); // divをbodyに追加
                 document.body.appendChild(myimgchoki);
             }
             else if (num == 3) {
-                alert("ぱー あなたの勝ち！")
+                // alert("ぱー あなたの勝ち！")
                 var addcomment = document.createTextNode("あなたの勝ち");
                 commentDiv.appendChild(addcomment); // テキストノードをdivに追加
-                commentDiv.style.textAlign = 'center'; // テキストを中央に揃える
+                commentDiv.style.marginLeft = '300px';
                 commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
                 document.body.appendChild(commentDiv); // divをbodyに追加
                 document.body.appendChild(myimgpa);
@@ -202,28 +203,28 @@
             const num = Math.ceil(Math.random() * 3);
             if (num == 1) {
 
-                alert("ぐー あなたの勝ち")
+                // alert("ぐー あなたの勝ち")
                 var addcomment = document.createTextNode("あなたの勝ち");
                 commentDiv.appendChild(addcomment); // テキストノードをdivに追加
-                commentDiv.style.textAlign = 'center'; // テキストを中央に揃える
+                commentDiv.style.marginLeft = '300px';
                 commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
                 document.body.appendChild(commentDiv); // divをbodyに追加
                 document.body.appendChild(myimggu);
             }
             else if (num == 2) {
-                alert("ちょき わたしの勝ち")
+                // alert("ちょき わたしの勝ち")
                 var addcomment = document.createTextNode("わたしの勝ち");
                 commentDiv.appendChild(addcomment); // テキストノードをdivに追加
-                commentDiv.style.textAlign = 'center'; // テキストを中央に揃える
+                commentDiv.style.marginLeft = '300px';
                 commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
                 document.body.appendChild(commentDiv); // divをbodyに追加
                 document.body.appendChild(myimgchoki);
             }
             else if (num == 3) {
-                alert("ぱー あいこ")
+                // alert("ぱー あいこ")
                 var addcomment = document.createTextNode("\u00A0\u00A0\u00A0   あいこ");
                 commentDiv.appendChild(addcomment); // テキストノードをdivに追加
-                commentDiv.style.textAlign = 'center'; // テキストを中央に揃える
+                commentDiv.style.marginLeft = '300px';
                 commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
                 document.body.appendChild(commentDiv); // divをbodyに追加
                 document.body.appendChild(myimgpa);
