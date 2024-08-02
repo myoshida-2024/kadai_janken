@@ -1,0 +1,21 @@
+#div1 {
+    background-image: url('../img/janken_gu_small.png');
+    width: 800px;
+    height: 600px;
+  }
+
+  #div1:active {
+    background-image: url('../img/janken_gu.png');
+  }
+
+  .yours {
+    /* border: solid 6px #abcf3e; */
+    /* 追加するコード*/ 
+    display: flex;
+    justify-content: center;
+}
+
+.result {
+    display: flex;
+    justify-items: center;
+}
