@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>じゃんけん</title>
+    <link rel="stylesheet" href="./css/sample.css">
+</head>
+
+<body>
+
+
+    <!-- <img src="./img/janken_gu_small.png" onclick="this.src='./img/janken_gu.png'"> -->
+
+    <!-- <button id="btn_gu">ぐー</button> -->
+
+    <div style="padding: 10px; padding-bottom: 100px; margin-bottom: -80px; text-align:center; font-size:50px;">
+        じゃんけんぽん！
+    </div>
+
+    <div style="padding: 10px; padding-bottom: 100px; margin-bottom: -80px; text-align:center; font-size: 20px;">
+        どの手を選ぶ？
+    </div>
+
+    <div class="yours">
+
+        <button id="btn_gu" type="button" style="height: 50px; margin-left:50px;">
+            <img src="./img/janken_gu_small.png" alt="gu_Button" style="height: 100%;">
+        </button>
+
+        <button id="btn_choki" type="button" style="height: 50px; margin-left:50px;">
+            <img src="./img/janken_choki_small.png" alt="choki_Button" style="height: 100%;">
+        </button>
+
+        <button id="btn_pa" type="button" style="height: 50px; margin-left:50px; margin-right:50px;">
+            <img src="./img/janken_pa_small.png" alt="pa_Button" style="height: 100%; ">
+        </button>
+    </div>
+
+    <!-- <div class="mine" style="margin-top: 50px; padding: 10px;  
+    padding-bottom: 100px; margin-bottom: -80px; border: 1px solid #333333;">
+    -->
+
+    </div>
+
+
+    <script>
+        // どのボタンがクリックされたか
+        var btn_gu = document.getElementById('btn_gu');
+        var btn_choki = document.getElementById('btn_choki');
+        var btn_pa = document.getElementById('btn_pa');
+
+        // 結果を書く場所の指定
+        var commentDiv = document.createElement('div');
+        commentDiv.style.position = 'absolute'; // 絶対位置指定
+        commentDiv.style.top = '180px'; // 上からの距離
+        commentDiv.style.left = '200px'; // 左からの距離
+        commentDiv.style.color = 'red'; // テキストの色などのスタイルも指定可能
+        commentDiv.style.fontSize = '80px'; // テキストのフォントサイズ
+        commentDiv.style.fontWeight = 'bold'; // テキストの太さ
+
+    
+        // あなたが選んだ手の絵(ぐー)
+        var yourimggu = document.createElement('img');
+        yourimggu.id = '';
+        yourimggu.src = './img/janken_gu_small.png';
+        yourimggu.style.marginTop = '-80px';
+        yourimggu.style.marginLeft = '450px';
+
+
+        // あなたが選んだ手の絵(ちょき)
+        var yourimgchoki = document.createElement('img');
+        yourimgchoki.id = '';
+        yourimgchoki.src = './img/janken_choki_small.png';
+        yourimgchoki.style.marginTop = '-80px';
+        yourimgchoki.style.marginLeft = '450px';
+
+        // あなたが選んだ手の絵(ぱー)
+        var yourimgpa = document.createElement('img');
+        yourimgpa.id = '';
+        yourimgpa.src = './img/janken_pa_small.png';
+        yourimgpa.style.marginTop = '-80px';
+        yourimgpa.style.marginLeft = '450px';
+
+
+        // 私=コンピュータが選んだ手の絵(ぐー)
+        var myimggu = document.createElement('img');
+        myimggu.id = '';
+        myimggu.src = './img/janken_gu_small_rev.jpg';
+        myimggu.style.marginTop = '-50px';
+        myimggu.style.marginLeft = '100px';
+        myimggu.style.height = '200px';
+
+        // 私=コンピュータが選んだ手の絵(ちょき)
+        var myimgchoki = document.createElement('img');
+        myimgchoki.id = '';
+        myimgchoki.src = './img/janken_choki_small_rev.jpg';
+        myimgchoki.style.marginTop = '-50px';
+        myimgchoki.style.marginLeft = '100px';
+        myimgchoki.style.height = '200px';
+
+        // 私=コンピュータが選んだ手の絵(ぱー)
+        var myimgpa = document.createElement('img');
+        myimgpa.id = '';
+        myimgpa.src = './img/janken_pa_small_rev.jpg';
+        myimgpa.style.marginTop = '-50px';
+        myimgpa.style.marginLeft = '100px';
+        myimgpa.style.height = '200px';
+
+        var emptyDiv = document.createElement("div");
+        emptyDiv.style.height = "100px"; // 高さ20pxの空白行
+        document.body.appendChild(emptyDiv);
+
+        //あなたがグーを選んだ場合
+        btn_gu.addEventListener('click', function () {
+            document.body.appendChild(yourimggu);
+
+            // コンピュータの手
+            const num = Math.ceil(Math.random() * 3);
+            if (num == 1) {
+
+                // alert("ぐー あいこ");
+                var addcomment = document.createTextNode('\u00A0\u00A0\u00A0   あいこ');
+                commentDiv.appendChild(addcomment); // テキストノードをdivに追加
+                commentDiv.style.marginLeft = '300px';
+                commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
+                document.body.appendChild(commentDiv); // divをbodyに追加
+                document.body.appendChild(myimggu);
+
+
+            }
+            else if (num == 2) {
+                // alert("ちょき あなたの勝ち！")
+                var addcomment = document.createTextNode("あなたの勝ち");
+                commentDiv.appendChild(addcomment); // テキストノードをdivに追加
+                commentDiv.style.marginLeft = '300px';
+                commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
+                document.body.appendChild(commentDiv); // divをbodyに追加
+                document.body.appendChild(myimgchoki);
+
+
+
+            }
+            else if (num == 3) {
+                // alert("ぱー わたしの勝ち！")
+                var addcomment = document.createTextNode("わたしの勝ち");
+                commentDiv.appendChild(addcomment); // テキストノードをdivに追加
+                commentDiv.style.marginLeft = '300px';
+                commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
+                document.body.appendChild(commentDiv); // divをbodyに追加
+                document.body.appendChild(myimgpa);
+
+            }
+
+        }, false);
+
+        //あなたがちょきを選んだ場合
+        btn_choki.addEventListener('click', function () {
+            document.body.appendChild(yourimgchoki);
+
+            // コンピュータの手
+            const num = Math.ceil(Math.random() * 3);
+            if (num == 1) {
+
+                // alert("ぐー わたしの勝ち")
+                var addcomment = document.createTextNode("わたしの勝ち");
+                commentDiv.appendChild(addcomment); // テキストノードをdivに追加
+                commentDiv.style.marginLeft = '300px';
+                commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
+                document.body.appendChild(commentDiv); // divをbodyに追加
+                document.body.appendChild(myimggu);
+
+
+            }
+            else if (num == 2) {
+                // alert("ちょき あいこ")
+                var addcomment = document.createTextNode("\u00A0\u00A0\u00A0   あいこ");
+                commentDiv.appendChild(addcomment); // テキストノードをdivに追加
+                commentDiv.style.marginLeft = '300px';
+                commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
+                document.body.appendChild(commentDiv); // divをbodyに追加
+                document.body.appendChild(myimgchoki);
+            }
+            else if (num == 3) {
+                // alert("ぱー あなたの勝ち！")
+                var addcomment = document.createTextNode("あなたの勝ち");
+                commentDiv.appendChild(addcomment); // テキストノードをdivに追加
+                commentDiv.style.marginLeft = '300px';
+                commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
+                document.body.appendChild(commentDiv); // divをbodyに追加
+                document.body.appendChild(myimgpa);
+
+            }
+
+        }, false);
+
+        //あなたがぱーを選んだ場合
+        btn_pa.addEventListener('click', function () {
+            document.body.appendChild(yourimgpa);
+
+            // コンピュータの手
+            const num = Math.ceil(Math.random() * 3);
+            if (num == 1) {
+
+                // alert("ぐー あなたの勝ち")
+                var addcomment = document.createTextNode("あなたの勝ち");
+                commentDiv.appendChild(addcomment); // テキストノードをdivに追加
+                commentDiv.style.marginLeft = '300px';
+                commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
+                document.body.appendChild(commentDiv); // divをbodyに追加
+                document.body.appendChild(myimggu);
+            }
+            else if (num == 2) {
+                // alert("ちょき わたしの勝ち")
+                var addcomment = document.createTextNode("わたしの勝ち");
+                commentDiv.appendChild(addcomment); // テキストノードをdivに追加
+                commentDiv.style.marginLeft = '300px';
+                commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
+                document.body.appendChild(commentDiv); // divをbodyに追加
+                document.body.appendChild(myimgchoki);
+            }
+            else if (num == 3) {
+                // alert("ぱー あいこ")
+                var addcomment = document.createTextNode("\u00A0\u00A0\u00A0   あいこ");
+                commentDiv.appendChild(addcomment); // テキストノードをdivに追加
+                commentDiv.style.marginLeft = '300px';
+                commentDiv.style.marginTop = '120px';  // 要素自体を下に50px移動
+                document.body.appendChild(commentDiv); // divをbodyに追加
+                document.body.appendChild(myimgpa);
+
+            }
+
+        }, false);
+
+
+        // ページをreloadする方法
+        // reloadの基本的な使い方
+        function doReload() {
+
+            // reloadメソッドによりページをリロード
+            window.location.reload();
+        }
+
+        window.addEventListener('load', function () {
+
+            // ページ表示完了した10秒後にリロード
+            setTimeout(doReload, 10000);
+        });
+
+
+
+    </script>
+
+</body>
+
+</html>
